@@ -1,7 +1,8 @@
 // Define Mongoose
 const { Schema, model } = require("mongoose");
+const thoughtSchema = require("./Thought");
 
-// Schema for what makes up a username
+// Schema for what makes up a user
 const userSchema = new Schema({
   username: {
     type: String,
@@ -13,16 +14,20 @@ const userSchema = new Schema({
     type: String,
     unique: true,
     required: true,
-    validate: [validateEmail, "Please fill a valid email address"],
     match: [
       /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/,
       "Please fill a valid email address",
     ],
   },
-  assignments: [thoughtSchema],
+  thoughts: [thoughtSchema],
+  friends: [this],
 });
 
-// Initialize the Comment model
+userSchema.virtual("friendCount").get(function () {
+  return this.friends.length;
+});
+
+// Initialize the User model
 const User = model("user", userSchema);
 
 module.exports = User;
