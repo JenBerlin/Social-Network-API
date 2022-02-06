@@ -19,7 +19,7 @@ const userSchema = new Schema({
       "Please fill a valid email address",
     ],
   },
-  thoughts: [thoughtSchema],
+  // thoughts: [thoughtSchema],
   friends: [this],
 });
 
