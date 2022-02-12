@@ -5,7 +5,7 @@ const {
   createThought,
   updateThought,
   deleteThought,
-  addThoughtReaction,
+  createThoughtReaction,
   deleteThoughtReaction,
 } = require("../../controllers/thoughtController");
 
@@ -17,7 +17,7 @@ router
   .put(updateThought)
   .delete(deleteThought);
 
-router.route("/:thoughtId/reaction").post(addThoughtReaction);
+router.route("/:thoughtId/reaction").post(createThoughtReaction);
 
 router.route("/:thoughtId/reaction/:reactionId").delete(deleteThoughtReaction);
 
