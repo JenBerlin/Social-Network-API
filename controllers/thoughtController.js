@@ -1,6 +1,6 @@
 const { json } = require("express");
-const Thought = require("../models/Thought");
-const User = require("../models/Thought");
+const { Thought } = require("../models/Thought");
+const User = require("../models/User");
 
 module.exports = {
   async getThoughts(req, res) {
@@ -67,17 +67,19 @@ module.exports = {
   },
   async deleteThought(req, res) {
     try {
-      const thought = await Thought.findOneAndRemove({ _id: req.params.thouq });
+      const thought = await Thought.findOneAndRemove({
+        _id: req.params.thoughtId,
+      });
       if (!thought) {
         res.status(404).json({ message: "Thought with this ID is not found." });
       } else {
         const user = await User.findOneAndUpdate(
-          { thoughts: req.params.thoghtId },
-          { $pull: { thoughts: req.params.thoughtId } },
+          { thoughts: req.params.thoughtId },
+          { $unset: { thoughts: thought } },
           { new: true }
         );
         if (!user) {
-          res.satus(404).json({
+          res.status(404).json({
             message: "Thought created but nu user found with this ID.",
           });
         } else {

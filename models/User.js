@@ -1,6 +1,6 @@
 // Define Mongoose
 const { Schema, model } = require("mongoose");
-const thoughtSchema = require("./Thought");
+const { thoughtSchema } = require("./Thought");
 
 // Schema for what makes up a user
 const userSchema = new Schema({
@@ -19,7 +19,12 @@ const userSchema = new Schema({
       "Please fill a valid email address",
     ],
   },
-  thoughts: [thoughtSchema],
+  thoughts: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: "Thought",
+    },
+  ],
   friends: [this],
 });
 
