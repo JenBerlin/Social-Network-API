@@ -27,7 +27,7 @@ The repository contains a builded API for a social network web application by us
 
 # Installation
 
-To make use of the application (in this state) you would need to open for example insomnia API design platform to check and play around with the API. For this you must open the code in VS Code, open your insomnia application, create the respective API requestions in insomnia and connecting/active them by entering the respective path, for example: localhost:3001/api/users/
+To make use of the application (in this state) you would need to open (for example) insomnia API design platform to check and play around with the API. For this you must open the code in VS Code, open your insomnia application, create the API requests in insomnia and connecting/active them by entering the respective path, for example: localhost:3001/api/users/
 
 # Usage / Functionality test via insomnia API design platform
 
@@ -69,5 +69,5 @@ To make use of the application (in this state) you would need to open for exampl
 └── server.js
 ```
 
-- GitHub (dev branch): https://github.com/JenBerlin/Tech-Blog/pull/1
+- GitHub (dev branch): https://github.com/JenBerlin/Social-Network-API/pull/1
 - Walkthrough Video: https://drive.google.com/file/d/1uDXA3lKp52cEmvspV-cMGrTdqMEbpuhu/view?usp=sharing
